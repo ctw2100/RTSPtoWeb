@@ -1,4 +1,5 @@
 {
+  "channel_defaults": {},
   "server": {
     "debug": true,
     "http_debug": false,
@@ -13,26 +14,83 @@
     "https_cert": "server.crt",
     "https_key": "server.key",
     "https_port": ":443",
-    "ice_servers": ["stun:stun.l.google.com:19302"],
+    "ice_credential": "",
+    "ice_servers": [
+      "stun:stun.l.google.com:19302"
+    ],
+    "ice_username": "",
     "log_level": "debug",
     "rtsp_port": ":5541",
     "token": {
-      "backend": "http://127.0.0.1/test.php"
+      "backend": "http://127.0.0.1/test.php",
+      "enable": false
     },
-    "defaults": {
-      "audio": true
-    }
+    "webrtc_port_max": 0,
+    "webrtc_port_min": 0
   },
   "streams": {
-    "27aec28e-6181-4753-9acd-0456a75f0289": {
+    "camera1": {
       "channels": {
         "0": {
-          "url": "rtmp://171.25.232.10/12d525bc9f014e209c1280bc0d46a87e",
-          "debug": false,
-          "audio": true
+	  "on_demand": false,
+          "url": "rtsp://192.168.1.155/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
         }
       },
-      "name": "111111111"
+      "name": "1"
+    },
+    "camera2": {
+      "channels": {
+        "0": {
+	  "on_demand": false,
+          "url": "rtsp://192.168.1.156/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
+        }
+      },
+      "name": "2"
+    },
+    "camera3": {
+      "channels": {
+        "0": {
+	  "on_demand": false,
+          "url": "rtsp://192.168.1.157/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
+        }
+      },
+      "name": "3"
+    },
+    "camera4": {
+      "channels": {
+        "0": {
+	  "on_demand": false,
+          "url": "rtsp://192.168.1.158/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
+        }
+      },
+      "name": "4"
+    },
+    "camera5": {
+      "channels": {
+        "0": {
+          "on_demand": false,
+          "url": "rtsp://192.168.1.159/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
+        }
+      },
+      "name": "5"
+    },
+    "camera6": {
+      "channels": {
+        "0": {
+          "on_demand": false,
+          "url": "rtsp://192.168.1.232/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
+        }
+      },
+      "name": "6"
+    },
+    "camera7": {
+      "channels": {
+        "0": {
+	  "on_demand": false,
+          "url": "rtsp://192.168.1.160/user=admin\u0026password=\u0026channel=1\u0026stream=0.sdp?"
+        }
+      },
+      "name": "7"
     }
   }
 }
