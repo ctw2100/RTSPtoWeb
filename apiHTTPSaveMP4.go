@@ -106,7 +106,9 @@ func HTTPAPIServerStreamSaveToMP4(c *gin.Context) {
 			}).Errorln(err.Error())
 			return
 		}
-		err = os.MkdirAll(fmt.Sprintf("save/%s/%s/", c.Param("uuid"), c.Param("channel")), 0755)
+		path := fmt.Sprintf("../SNOVA-backend/static/record/%s/%s", c.Param("uuid"), c.Param("channel"))
+
+		err = os.MkdirAll(path, 0755)
 
 		if err != nil {
 			requestLogger.WithFields(logrus.Fields{
@@ -114,8 +116,7 @@ func HTTPAPIServerStreamSaveToMP4(c *gin.Context) {
 			}).Errorln(err.Error())
 		}
 		current_time := time.Now()
-		path := fmt.Sprintf("save/%s/%s", c.Param("uuid"), c.Param("channel"))
-
+		
 		oldestFile, err := findOldestFile(path)
 		if err != nil {
 			
@@ -130,7 +131,7 @@ func HTTPAPIServerStreamSaveToMP4(c *gin.Context) {
 			}
 		}
 
-		file_time := fmt.Sprintf("%d-%02d-%02d-%02d:%02d:%02d\n", 
+		file_time := fmt.Sprintf("%d-%02d-%02d-%02d-%02d-%02d", 
 						current_time.Year(), current_time.Month(), current_time.Day(), 
 						current_time.Hour(), current_time.Minute(), current_time.Second()) 
 		f, err := os.Create(fmt.Sprintf("%s/%s.mp4", path, file_time))
