@@ -107,7 +107,8 @@ func HTTPAPIServer() {
 	public.GET("/stream/:uuid/channel/:channel/mse", HTTPAPIServerStreamMSE)
 	public.POST("/stream/:uuid/channel/:channel/webrtc", HTTPAPIServerStreamWebRTC)
 	//Save fragment to mp4
-	public.GET("/stream/:uuid/channel/:channel/save/mp4/fragment/:duration", HTTPAPIServerStreamSaveToMP4)
+	public.GET("/stream/:uuid/channel/:channel/save-and-del/mp4/fragment/:duration", HTTPAPIServerStreamSaveToMP4)
+	public.GET("/stream/:uuid/channel/:channel/save/mp4/fragment/:duration", HTTPAPIServerStreamSaveToMP4NoDel)
 	/*
 		HTTPS Mode Cert
 		# Key considerations for algorithm "RSA" ≥ 2048-bit
